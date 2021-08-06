@@ -8,7 +8,7 @@
       <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
           <div class="p-6 sm:px-20 bg-white border-b border-gray-200">
-            <inertia-link
+            <Link
               :href="route('user.create')"
               class="btn btn-success inline-block"
             >
@@ -28,10 +28,10 @@
               </svg>
 
               Crear Usuario
-            </inertia-link>
+            </Link>
 
             <form method="get" class="flex mt-2" @submit.prevent="submit">
-              <inertia-link preserve-scroll href="#" class="btn btn-primary mr-2" @click="form.name = ''">
+              <Link preserve-scroll href="#" class="btn btn-primary mr-2" @click="form.name = ''">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   class="h-6 w-6"
@@ -46,7 +46,7 @@
                     d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"
                   />
                 </svg>
-              </inertia-link>
+              </Link>
 
               <jet-input
                 v-model="form.name"
@@ -72,7 +72,7 @@
                   <td class="p-3 border">{{ u.name }}</td>
                   <td class="p-3 border">{{ u.email }}</td>
                   <td class="p-3 border">
-                    <inertia-link
+                    <Link
                       class="btn btn-primary mr-2 inline-block"
                       :href="route('user.show', { customer: u })"
                     >
@@ -96,8 +96,8 @@
                           d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
                         />
                       </svg>
-                    </inertia-link>
-                    <inertia-link
+                    </Link>
+                    <Link
                       class="btn btn-primary mr-2 inline-block"
                       :href="route('user.edit', { customer: u })"
                     >
@@ -115,11 +115,11 @@
                           d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
                         />
                       </svg>
-                    </inertia-link>
-                    <!-- <inertia-link
+                    </Link>
+                    <!-- <Link
                       method="DELETE"
                       :href="route('user.destroy', { customer: u })"
-                      >Borrar</inertia-link
+                      >Borrar</Link
                     > -->
 
                     <button
@@ -188,7 +188,7 @@ import AppLayout from "@/Layouts/AppLayout";
 import JetDialogModal from "@/Jetstream/DialogModal";
 import JetButton from "@/Jetstream/Button";
 import JetInput from "@/Jetstream/Input";
-
+import { Link } from '@inertiajs/inertia-vue3'
 import Paginator from "@/Components/Paginator";
 
 export default {
@@ -211,6 +211,7 @@ export default {
     JetButton,
     JetInput,
     Paginator,
+    Link
   },
   methods: {
     submit: function () {
